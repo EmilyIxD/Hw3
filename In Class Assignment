@@ -1,0 +1,30 @@
+function setup() {
+  createCanvas(400, 400);
+}
+
+// track the circle to draw next frame
+var x = 50;
+var y = 50;
+
+function draw() {
+  colorMode(HSB);
+  stroke(255);
+
+  // draw circle with random hue
+  fill(random(350), 50, 100);
+  rect(x, y, 20, 20);
+
+  // set up next circle
+  x = x + 50;
+
+  // if we hit the right edge, go down a line
+  if (x > width-50) {
+    x = 50;
+    y = y + 50;
+  }
+
+  // if we hit the bottom edge, reset to top
+  if (y > height-50) {
+    y = 50;
+  }
+}
